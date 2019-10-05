@@ -8,12 +8,10 @@
 </nav>
 
 <main>
-  <header class="text-center">
-    <h1 class="title">Community for remote developer</h1>
-  </header>
-  <section class="d-flex justify-content-center">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name))
-    do |f| %>
+  <h1 class="title text-center">Community for remote developer</h1>
+  <div class="earth"><%= show_svg 'earth.svg'%></div>
+  <section class="d-flex justify-content-center align-items-center">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="m-4">
       <%= f.label :email, class:'label' %><br />
       <%= f.email_field :email, autofocus: true, placeholder: "Email address",
@@ -40,4 +38,5 @@
     </div>
     <% end %>
   </section>
+   
 </main>
