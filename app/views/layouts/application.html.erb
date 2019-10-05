@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Devocean</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Devocean</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <body>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= yield %>
+<body>
+  <%if notice || alert %>
+  <p class="notice text-center"><%= notice %></p>
+  <p class="alert text-center"><%= alert %></p>
+  <%end%>
+  <%= yield %>
 
-  </body>
+</body>
+
 </html>
