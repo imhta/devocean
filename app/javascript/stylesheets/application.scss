@@ -1,1 +1,16 @@
-@import '~bootstrap/scss/bootstrap.scss'
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import 'sessions.scss';
+@import "~bootstrap/scss/functions.scss";
+@import "~bootstrap/scss/variables.scss";
+
+$theme-colors: (
+  primary: #00BAF4 
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+body{
+    background-color: #000000;
+    font-family: Roboto;
+}
