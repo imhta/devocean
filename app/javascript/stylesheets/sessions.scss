@@ -5,7 +5,7 @@
   box-shadow: 0px 4px 0px rgba(124, 124, 124, 0.5);
   padding: 7px 0px 7px 20px;
   min-height: 50px;
-  min-width: 300px;
+  min-width: 250px;
   width: 100%;
 }
 
@@ -78,4 +78,19 @@
   bottom: -100px;
   mix-blend-mode: darken;
   opacity: 0.3;
+}
+
+.do-drop-field {
+  min-width: 150px;
+  min-height: 50px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 4px 0px rgba(124, 124, 124, 0.5);
+  padding: 7px 0px 7px 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(../../assets/images/down_arrow.png) 96% / 15% no-repeat #eee;
 }
