@@ -8,7 +8,8 @@
 </nav>
 
 <main>
-  <h1 class="title text-center">Community for remote developer</h1>
+  <h1 class="title text-center text-white">Sign<span class="text-primary"> in</span></h1>
+  <h2 class="title text-center">Community for remote developer</h2>
   <div class="earth"><%= show_svg 'earth.svg'%></div>
   <section class="d-flex justify-content-center align-items-center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -33,10 +34,10 @@
       new_password_path(resource_name), class: 'text-primary' %>
     </div>
     <div class="actions">
-      <%= link_to show_svg('back_arrow.svg'),'#',class: 'do-min-btn float-left'
+      <%= link_to show_svg('back_arrow.svg'),root_path,class: 'do-min-btn float-left'
       %> <%= f.submit "Sign in", class:'sign-up-btn do-btn float-right' %>
     </div>
     <% end %>
   </section>
-   
+
 </main>
