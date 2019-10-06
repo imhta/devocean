@@ -10,8 +10,8 @@
 }
 
 .do-btn {
-  width: 150px;
-  height: 50px;
+  padding: 15px 30px;
+  min-width: 150px;
   outline: none;
   border: none;
   background: #333333;
@@ -24,6 +24,7 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
+  text-align: center;
   color: #ffffff;
   &:hover {
     text-decoration: none;
