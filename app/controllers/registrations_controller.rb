@@ -5,4 +5,10 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:email, :first_name, :last_name, :dob, :gender,
                                  :password, :password_confirmation)
   end
+
+  private
+
+  def after_sign_up_path_for(resource)
+    stored_location_for(resource) || users_index_path
+  end
 end
