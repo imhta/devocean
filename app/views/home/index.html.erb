@@ -8,21 +8,30 @@
     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'do-btn' %>
 </nav>
 
-<main class="container row">
-    <section class="col-md-4">
-        <div class="do-sidebar d-flex flex-column justify-content-center align-items-center">
-            <div class="profile-img--default m-4"><%= current_user_initial %></div>
-            <p><%= current_user.display_name%></p>
-            <p class="sub-title"><%= current_user.email %></p>
-        </div>
-    </section>
-    <section class="col-md-8">
-        <%= form_with scope: :post, url: '', local: true do |form| %>
+<main class="container">
 
-        <%= form.rich_text_area :body, placeholder: '😃 Share your thoughts.. ' %>
-        <div class="trix-footbar p-3 d-flex justify-content-end">
-            <%= form.submit "Post" %>
-        </div>
+    <div class="row">
+        <section class="col-md-4">
+            <div class="do-sidebar d-flex flex-column justify-content-center align-items-center">
+                <div class="profile-img--default m-4"><%= current_user_initial %></div>
+                <p><%= current_user.display_name%></p>
+                <p class="sub-title"><%= current_user.email %></p>
+            </div>
+        </section>
+        <section class="col-md-8">
+            <%= form_for(:post, url: post_path )do |form|  %>
+
+            <%= form.rich_text_area :body, placeholder: '😃 Share your thoughts.. ' %>
+            <div class="trix-footbar p-3 d-flex justify-content-end">
+                <%= form.submit "Post" %>
+            </div>
+            <%end%>
+        </section>
+    </div>
+
+    <div class="col-md-8 offset-md-4">
+        <% @posts.all.each do |p|%>
+        <div><%= p.body %></div>
         <%end%>
-    </section>
+    </div>
 </main>
