@@ -30,8 +30,16 @@
     </div>
 
     <div class="col-md-8 offset-md-4">
+        <h3 class="title text-primary">FEED</h3>
         <% @posts.all.each do |p|%>
-        <div><%= p.body %></div>
-        <%end%>
-    </div>
+        <div class="post">
+            <header class="post-header d-flex align-items-center">
+                <div class="profile-img--default"><%= current_user_initial %></div>
+                <span class="user-name text-white m-2"><%= p.user.display_name %><span>
+            </header>
+            <%= p.body %>
+            <div class="time"> <%= time_ago_in_words(p.created_at) %> ago<div>
+                </div>
+                <%end%>
+            </div>
 </main>
