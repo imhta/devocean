@@ -8,7 +8,16 @@
 // We need to override trix.css’s image gallery styles to accommodate the
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
+$max-width: 700px;
+trix-editor {
+  border: none;
+  background-color: #41414121;
+  padding: 15px;
+  max-width: $max-width;
+}
 .trix-content {
+  color: white;
+  max-width: $max-width;
   .attachment-gallery {
     > action-text-attachment,
     > .attachment {
@@ -31,6 +40,58 @@
     .attachment {
       padding: 0 !important;
       max-width: 100% !important;
+    }
+  }
+}
+trix-toolbar {
+  background-color: #333333;
+  box-shadow: 0px 4px 0px #00baf4;
+  max-width: $max-width;
+  .trix-button-group {
+    margin-bottom: 0px;
+    border: none;
+    border-top-color: none;
+    border-bottom-color: none;
+    margin: 3px;
+    .trix-button {
+      outline: none;
+      border: none;
+    }
+  }
+
+  .trix-button.trix-active {
+    background: white;
+    color: blue;
+  }
+}
+.trix-footbar {
+  max-width: $max-width;
+  background-color: #41414121;
+  input {
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    background: #333333;
+    box-shadow: 0px 4px 0px #00baf4;
+    border-radius: 5px;
+
+    cursor: pointer;
+    user-select: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    line-height: 21px;
+    text-align: center;
+    color: #ffffff;
+    &:hover {
+      text-decoration: none;
+      color: #ffffff;
+    }
+    &:active {
+      background: #333333;
+      box-shadow: 0px 1px 0px #00baf4;
+      border-radius: 5px;
     }
   }
 }

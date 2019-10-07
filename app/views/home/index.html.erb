@@ -4,6 +4,8 @@
 
 <%= form_with scope: :post, url: '', local: true do |form| %>
 
- <%= form.rich_text_area :body %> 
-<%= form.submit %> 
+<%= form.rich_text_area :body %>
+<div class="trix-footbar p-3 d-flex justify-content-end">
+    <%= form.submit "Post" %>
+</div>
 <%end%>
