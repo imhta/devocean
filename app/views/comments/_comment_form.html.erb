@@ -1,0 +1,6 @@
+<%= form_for current_user.comments %>
+  <%= render 'devise/shared/error_messages', resource: f.object %>
+  <%= f.hidden_field :post_id, value: post.id %>
+  <%= f.text_field :body, placeholder: "Write a comment...", class: "form-control", required: true %>
+  <%= f.submit "Comment", class: "btn btn-primary" %>
+<% end %>
