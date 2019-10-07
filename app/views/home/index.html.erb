@@ -10,9 +10,10 @@
 
 <main class="container row">
     <section class="col-md-4">
-        <div class="do-sidebar">
-            <p class="sub-title"><%= current_user.display_name%></p>
-            <p><%= current_user.email %></p>
+        <div class="do-sidebar d-flex flex-column justify-content-center align-items-center">
+            <div class="profile-img--default m-4"><%= current_user_initial %></div>
+            <p><%= current_user.display_name%></p>
+            <p class="sub-title"><%= current_user.email %></p>
         </div>
     </section>
     <section class="col-md-8">
