@@ -10,9 +10,12 @@
 
 <main class="container row">
     <section class="col-md-4">
+        <div class="do-sidebar">
+            <p class="sub-title"><%= current_user.display_name%></p>
+            <p><%= current_user.email %></p>
+        </div>
     </section>
     <section class="col-md-8">
-        <h2 class="title text-white">Post</h2>
         <%= form_with scope: :post, url: '', local: true do |form| %>
 
         <%= form.rich_text_area :body, placeholder: '😃 Share your thoughts.. ' %>

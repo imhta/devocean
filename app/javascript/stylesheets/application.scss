@@ -1,16 +1,15 @@
-
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import 'do_utils.scss';
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import "do_utils.scss";
 @import "~bootstrap/scss/functions.scss";
 @import "~bootstrap/scss/variables.scss";
 
 $theme-colors: (
-  primary: #00BAF4 
+  primary: #00baf4
 );
 
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 
-body{
-    background-color: #000000;
-    font-family: Roboto;
+body {
+  background-color: #000000;
+  font-family: Roboto;
 }
