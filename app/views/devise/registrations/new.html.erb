@@ -24,12 +24,12 @@
     <div class="row">
       <div class="col m-4">
         <%= f.label :dob, class:'label'%><br />
-        <%= f.text_field :dob, placeholder: "DOB", class: 'do-field' %>
+        <%= f.text_field :dob, placeholder: "DOB", class: 'do-field', type: 'date' %>
       </div>
 
       <div class="col m-4">
         <%= f.label :gender, class:'label'%><br />
-        <%= f.select :gender,[ "Men", "Women", "Other"], {prompt: 'Gender'}, {class: 'do-drop-field' }%>
+        <%= f.select :gender,[ "Men", "Women", "Other"], {}, {class: 'do-drop-field' }%>
       </div>
     </div>
 
