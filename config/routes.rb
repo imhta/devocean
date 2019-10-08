@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # pwa routes
   get '/service-worker.js' => "service_worker#service_worker"
   get '/manifest.json' => "service_worker#manifest"
-  devise_for :users, :controllers => {registrations: "registrations", sessions: "sessions"}
+  devise_for :users, :controllers => {registrations: "registrations"}
 
   get 'users/index'
   post 'post', to: 'posts#create' 
