@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
-  def create 
+  def create
     if user_signed_in?
-      @like=Like.new(like_params)
+      @like = Like.new(like_params)
       @like.save
-      flash[:notice]="Post liked"
+      flash[:notice] = 'Post liked'
       # flash[:notice]="#{@post.title} succesfully liked"
       # redirect
     end
@@ -17,8 +19,9 @@ class LikesController < ApplicationController
   end
 
   private
+
   def like_params
-    params.require(:like).permit(:post_id , :user_id)
+    params.require(:like).permit(:post_id, :user_id)
   end
 
   def find_post
