@@ -1,3 +1,32 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.post {
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    // border: 1px solid #00baf4;
+    box-shadow: 0px 4px 0px #00baf4;
+    border-radius: 5px;
+    margin: 20px;
+    background: #333333;
+    .post-header {
+      margin-bottom: 20px;
+    }
+    .profile-img--default {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #00baf4;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+      padding-top: 6px;
+    }
+  
+    .time {
+      text-align: right;
+    }
+  }
+  

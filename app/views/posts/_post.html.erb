@@ -1,0 +1,8 @@
+<div class="post" id="post-<%= post.id %>">
+    <header class="post-header d-flex align-items-center">
+        <div class="profile-img--default"><%= post.user.initial %></div>
+        <span class="user-name text-white m-2"><%= post.user.display_name %></span>
+    </header>
+    <div class="post-body"><%= post.body %></div>
+    <div class="time text-white"> <%= time_ago_in_words(post.created_at) %> ago</div>
+</div>

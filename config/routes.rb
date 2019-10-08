@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  # pwa routes
+  get '/service-worker.js' => "service_worker#service_worker"
+  get '/manifest.json' => "service_worker#manifest"
   devise_for :users, :controllers => {registrations: "registrations"}
 
-  get 'users/show'
-  root 'users#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'users/index'
+  post 'post', to: 'posts#create' 
+  authenticated :user do
+    root to: 'home#index', as: :authenticated_root
+  end
+  root 'static_pages#home'
 end
