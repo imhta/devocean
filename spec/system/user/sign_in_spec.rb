@@ -6,7 +6,7 @@ RSpec.describe 'User Sign In', type: :system do
   context 'User Sign In' do
     let(:user) { FactoryBot.create(:user) }
     before(:each) do
-      visit root_path
+      visit new_user_session_path
       within 'form' do
         fill_in 'Email', with: user.email
       end
@@ -15,7 +15,7 @@ RSpec.describe 'User Sign In', type: :system do
     scenario 'User signs in successfully' do
       within 'form' do
         fill_in 'Password', with: user.password
-        click_button 'Log in'
+        click_button 'Sign in'
       end
       expect(page).to have_content('Signed in successfully.')
     end
@@ -23,7 +23,7 @@ RSpec.describe 'User Sign In', type: :system do
     scenario 'User fills in incorrect password' do
       within 'form' do
         fill_in 'Password', with: 'wrong password'
-        click_button 'Log in'
+        click_button 'Sign in'
       end
       expect(page).to have_content('Invalid Email or password.')
     end

@@ -5,8 +5,7 @@ require 'rails_helper'
 RSpec.describe 'User page', type: :system do
   context 'User Sign Up' do
     before(:each) do
-      visit root_path
-      click_link 'Sign up'
+      visit new_user_registration_path
       within 'form' do
         fill_in 'First name', with: 'First'
         fill_in 'Last name', with: 'Last'
