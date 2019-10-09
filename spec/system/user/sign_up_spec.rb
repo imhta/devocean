@@ -11,8 +11,8 @@ RSpec.describe 'User page', type: :system do
         fill_in 'First name', with: 'First'
         fill_in 'Last name', with: 'Last'
         fill_in 'Email', with: 'test@example.com'
-        fill_in 'Gender', with: 'Men',
-        fill_in 'Dob', with: '12/11/1997',
+        fill_in 'Gender', with: 'Men'
+        fill_in 'Dob', with: '12/11/1997'
         fill_in 'Password', with: 'test123'
         fill_in 'Password confirmation', with: 'test123'
       end
