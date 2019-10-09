@@ -2,7 +2,11 @@
 
 FactoryBot.define do
   factory :post do
-    body { 'MyString' }
-    user { nil }
+    body {  Faker::Lorem.paragraph }
+    association :user
+
+    trait :invalid do
+      body { '' }
+    end
   end
 end
