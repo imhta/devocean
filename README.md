@@ -33,6 +33,7 @@ bundle exec rspec
 ```
 ## Features :star: 
 - WYSIWYG editor for post
+- PWA
 ## ERD
 <img src="docs/_Entity Relationship for DevOcean .png">
 
