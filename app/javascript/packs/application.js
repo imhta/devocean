@@ -17,3 +17,16 @@ import '../stylesheets/application'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+require("trix")
+require("@rails/actiontext")
+
+
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/service-worker.js', { scope: './' })
+      .then(function(reg) {
+        console.log('[Companion]', 'Service worker registered!');
+        console.log(reg);
+        return reg
+      });
+  }

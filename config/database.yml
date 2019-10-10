@@ -82,8 +82,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: devocean_production
-  username: devocean
-  password: <%= ENV['DEVOCEAN_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: devocean_production
+#   username: devocean
+#   password: <%= ENV['DEVOCEAN_DATABASE_PASSWORD'] %>

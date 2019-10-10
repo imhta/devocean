@@ -1,0 +1,35 @@
+<%= render 'devise/shared/navbar'%>
+<main>
+  <h1 class="title text-center text-white">Sign<span class="text-primary"> in</span></h1>
+  <h2 class="title text-center">Community for remote developer</h2>
+  <div class="earth"><%= show_svg 'earth.svg'%></div>
+  <section class="d-flex justify-content-center align-items-center">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="m-4">
+      <%= f.label :email, class:'label' %><br />
+      <%= f.email_field :email, autofocus: true, placeholder: "Email address",
+      autocomplete: "email", class: 'do-field' %>
+    </div>
+
+    <div class="m-4">
+      <%= f.label :password, class:'label' %><br />
+      <%= f.password_field :password, placeholder: "Password", autocomplete:
+      "current-password", class: 'do-field' %>
+    </div>
+    <div class="m-4 d-flex justify-content-between">
+      <% if devise_mapping.rememberable? %>
+      <div>
+        <%= f.check_box :remember_me %> <%= f.label :remember_me, class:'label'
+        %>
+      </div>
+      <% end %> <%= link_to "Forgot your password?",
+      new_password_path(resource_name), class: 'text-primary' %>
+    </div>
+    <div class="actions">
+      <%= link_to show_svg('back_arrow.svg'),root_path,class: 'do-min-btn float-left'
+      %> <%= f.submit "Sign in", class:'sign-up-btn do-btn float-right' %>
+    </div>
+    <% end %>
+  </section>
+
+</main>
