@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(commentParams)
+    @comment = Comment.new(comment_params)
     if @comment.save
       flash[:success] = 'Comment successfully added'
       redirect_to comments_path(@comment)
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    if @comment.update(commentParams)
+    if @comment.update(comment_params)
       flash[:notice] = 'Comment successfully updated'
       redirect_to comments_path(@comment)
     else
@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def commentParams
+  def comment_params
     params.require(:comment).permit(:body, :post_id)
   end
 
