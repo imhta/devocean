@@ -12,16 +12,18 @@
     </ul>
 </nav>
 
-<main class="container row">
-<section class="col-md-10">
+<main class="container">
+<div class="row">
+<section class="col-md-8">
 <%= render 'posts/post_max', {post: @post}%>
 </section>
 <aside class="col-md-2">
     <h3 class="title text-primary">COMMENTS</h3>
     <%= render 'comments/comment_form', {post_id: @post.id} %>
-    <% @post.comments.each do |c|%>
+        <% @post.comments.each do |c|%>
         <%= render 'comments/comment', {comment: c}%>
     <%end%>
 
 </aside>
+</div>
 </main>
