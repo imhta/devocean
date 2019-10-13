@@ -34,6 +34,7 @@
 
 
 .post {
+    position: relative;
     padding: 15px 30px;
     outline: none;
     border: none;
@@ -42,8 +43,6 @@
     border-radius: 5px;
     margin: 20px;
     background: #333333;
-    overflow: hidden;
-    max-height: 600px;
     .post-header {
       margin-bottom: 20px;
     }
@@ -58,9 +57,30 @@
       text-align: center;
       padding-top: 6px;
     }
-  
-    .time {
-      text-align: right;
+    .post-body{
+      overflow: hidden;
+      max-height: 500px;
     }
+    .action-toolbar{
+      position: absolute;
+      background: #111111be;
+      width: 100%;
+      padding: 10px;
+      bottom: 0px;
+      left: 0px;
+      a{
+        margin: 1.5px;
+        padding: 1.5px;
+        color: #ffffff;
+      }
+      svg{
+        fill: white;
+      }
+      .time {
+        text-align: right;
+      }
+    }
+  
+
   }
   
