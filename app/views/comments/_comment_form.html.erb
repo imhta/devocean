@@ -1,6 +1,5 @@
-<%= form_for current_user.comments %>
-  <%= render 'devise/shared/error_messages', resource: f.object %>
-  <%= f.hidden_field :post_id, value: post.id %>
-  <%= f.text_field :body, placeholder: "Write a comment...", class: "form-control", required: true %>
-  <%= f.submit "Comment", class: "btn btn-primary" %>
+<%= form_for (:comment, url: comment_path ) do |f|%>
+  <%= f.hidden_field :post_id, value: post_id %>
+  <%= f.text_area :body, placeholder: "Write a comment...", class: "do-field", required: true %>
+  <%= f.submit "Comment", class: "do-btn" %>
 <% end %>

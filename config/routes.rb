@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: "registrations"}
 
   get 'users/index'
+  get '/posts/:id', to: 'posts#show'
   post 'post', to: 'posts#create' 
   authenticated :user do
     root to: 'posts#index', as: :authenticated_root
