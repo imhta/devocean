@@ -6,6 +6,7 @@
             fill="white" />
     </svg>
     <ul>
+      <%= link_to "Feed", root_path, class: 'do-btn' %>
       <%= link_to "Devs Around you", users_index_path, class: 'do-btn' %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'do-btn' %>
     </ul>
@@ -18,7 +19,7 @@
 <aside class="col-md-2">
     <h3 class="title text-primary">COMMENTS</h3>
     <%= render 'comments/comment_form', {post_id: @post.id} %>
-        <% @post.comments.each do |c|%>
+    <% @post.comments.each do |c|%>
         <%= render 'comments/comment', {comment: c}%>
     <%end%>
 
