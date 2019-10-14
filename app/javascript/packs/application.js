@@ -27,5 +27,6 @@ if (navigator.serviceWorker) {
       .then(function(reg) {
         console.log('[Companion]', 'Service worker registered!');
         console.log(reg);
+        return reg
       });
   }
