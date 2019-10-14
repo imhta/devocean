@@ -9,7 +9,7 @@
     <div class="post-body"><%= post.body %></div>
     <div class="action-toolbar d-flex justify-content-between align-items-center">
     <div>
-        <%= link_to show_svg('general_icons/arrow_up.svg'), likes_path(like: {post_id: post.id, user_id: post.user_id}), method: 'post', class:'upvote' %>
+        <%= link_to show_svg('general_icons/arrow_up.svg'), likes_path(like: {post_id: post.id, user_id: current_user.id}), method: 'post', class:'upvote' %>
         <span class="text-white"> <%= post.likes.count%></span>
     </div>
         <div>
