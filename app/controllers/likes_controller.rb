@@ -4,6 +4,8 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    return destroy if already_liked?
+
     like = Like.new(like_params)
     like.save
     flash[:notice] = 'Post liked'
@@ -11,7 +13,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like.destroy if like_owner? && user_signed_in?
+    like = Like.find_by(user_id: params[:like][:user_id], post_id: params[:like][:post_id])
+    like.destroy
     redirect_back(fallback_location: root_path)
   end
 
@@ -22,14 +25,14 @@ class LikesController < ApplicationController
   end
 
   def find_post
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:like][:post_id])
   end
 
   def like_owner?
-    current_user == @like.user
+    current_user.id == params[:like][:user_id]
   end
 
   def already_liked?
-    Like.where(user_id: current_user.id, post_id: params[:post_id]).exists?
+    Like.where(user_id: params[:like][:user_id], post_id: params[:like][:post_id]).exists?
   end
 end
