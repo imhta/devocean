@@ -13,7 +13,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like = Like.find_by(user_id: params[:like][:user_id], post_id: params[:like][:post_id])
+    like = Like.find_by(like_params)
     like.destroy
     redirect_back(fallback_location: root_path)
   end
@@ -24,15 +24,7 @@ class LikesController < ApplicationController
     params.require(:like).permit(:post_id, :user_id)
   end
 
-  def find_post
-    @post = Post.find(params[:like][:post_id])
-  end
-
-  def like_owner?
-    current_user.id == params[:like][:user_id]
-  end
-
   def already_liked?
-    Like.where(user_id: params[:like][:user_id], post_id: params[:like][:post_id]).exists?
+    Like.where(like_params).exists?
   end
 end
