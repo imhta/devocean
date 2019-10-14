@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: "registrations"}
 
   get 'users/index'
-  resources :posts
-  resources :comments
-  resources :likes
+  resources :posts, except: [:new, :edit, :update]
+  resources :comments, except: [:new, :edit, :update, :show, :destory]
+  resources :likes, except: [:edit, :update, :show, :new]
   authenticated :user do
     root to: 'posts#index', as: :authenticated_root
   end
