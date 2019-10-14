@@ -8,7 +8,7 @@
         <div class="time text-white p-2"> <%= time_ago_in_words(post.created_at) %> ago</div>
         <div class="p-2">
         <%= link_to show_svg('general_icons/arrow_up.svg'), likes_path(like: {post_id: post.id, user_id: post.user_id}), method: 'post', class:'upvote' %>
-        <span class="text-white"><%= post.likes.length %></span>
+        <span class="text-white"><%= post.likes.count %></span>
        </div>
     </div>
        
