@@ -4,14 +4,15 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @like = Like.new(like_params)
-    @like.save
+    like = Like.new(like_params)
+    like.save
     flash[:notice] = 'Post liked'
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    @like.destroy if like_owner? && user_signed_in?
-    # redirect
+    like.destroy if like_owner? && user_signed_in?
+    redirect_back(fallback_location: root_path)
   end
 
   private
