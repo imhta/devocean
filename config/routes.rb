@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'users/index'
   resources :posts
+  resources :comments
   authenticated :user do
     root to: 'posts#index', as: :authenticated_root
   end

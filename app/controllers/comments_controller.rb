@@ -3,17 +3,12 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @comment = Comment.new
-  end
-
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      flash[:success] = 'Comment successfully added'
-      redirect_to comments_path(@comment)
+    comment = Comment.create(comment_params)
+    if comment.save!
+      redirect_back(fallback_location: root_path)
     else
-      render 'new'
+      flash['alert'] = 'Error occurred'
     end
   end
 
@@ -41,7 +36,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id)
+    params.require(:comment).permit(:body, :post_id, :user_id)
   end
 
   def comment_writer?

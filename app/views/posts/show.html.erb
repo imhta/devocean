@@ -17,10 +17,10 @@
 <section class="col-md-8">
 <%= render 'posts/post_max', {post: @post}%>
 </section>
-<aside class="col-md-2">
+<aside class="col-md-4">
     <h3 class="title text-primary">COMMENTS</h3>
-    <%= render 'comments/comment_form', {post_id: @post.id} %>
-        <% @post.comments.each do |c|%>
+    <%= render 'comments/comment_form', {post_id: @post.id, user_id: @post.user_id} %>
+        <% @post.comments.all.each do |c|%>
         <%= render 'comments/comment', {comment: c}%>
     <%end%>
 
