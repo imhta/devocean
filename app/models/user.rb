@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments
   has_many :friendships
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend"
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend'
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -22,17 +22,17 @@ class User < ApplicationRecord
   end
 
   def friends
-    friends_array = friendships.map{|friendship| friendship.friend if friendship.confirmed}
-    friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.confirmed}
+    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
+    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
     friends_array.compact
   end
 
   def friend_request
-    inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact
+    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
   end
 
-  def comfirm_friend(usere)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user }
+  def comfirm_friend(_usere)
+    friendship = inverse_friendships.find { |fs| fs.user == user }
     friendship.confirmed = true
     friendship.save
   end
