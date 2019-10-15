@@ -6,4 +6,5 @@ class Post < ApplicationRecord
   has_many :likes
   has_rich_text :body
   validates :body, presence: true
+  scope :desc, -> { order('created_at DESC') }
 end

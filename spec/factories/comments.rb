@@ -2,8 +2,12 @@
 
 FactoryBot.define do
   factory :comment do
-    user { nil }
-    post { nil }
-    body { 'MyString' }
+    body { Faker::Lorem.paragraph }
+    association :user
+    association :post
+
+    trait :invalid do
+      body { '' }
+    end
   end
 end
