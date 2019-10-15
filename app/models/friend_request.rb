@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FriendRequest < ApplicationRecord
   belongs_to :user
   belongs_to :friend
@@ -16,7 +18,7 @@ class FriendRequest < ApplicationRecord
   def not_self
     errors.add(:friend, "can't be equal to user") if user == friend
   end
-  
+
   def not_friends
     errors.add(:friend, 'is already added') if user.friends.include?(friend)
   end

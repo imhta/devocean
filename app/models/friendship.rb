@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Friendship < ApplicationRecord
   belongs_to :user
-  belongs_to :friend, :class_name => "User"
+  belongs_to :friend, class_name: 'User'
 
   validate :not_self
 
-  enum status: [:0, :1, :2]
+  # enum status: [:0, :1, :2]
 
   private
 
@@ -14,7 +16,7 @@ class Friendship < ApplicationRecord
 
   def destroy_inverse_relationship
     friendship = friend.friendships.find_by(friend: user)
-    friendship.destroy if friendship
+    friendship&.destroy
   end
 
   def not_self
@@ -23,6 +25,4 @@ class Friendship < ApplicationRecord
   # def create_request
   #   friend.friendship.create(friend: user, status: :1) if status.zero?
   # end
-
-
 end

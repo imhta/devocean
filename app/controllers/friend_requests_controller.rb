@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class FriendRequestsController < ApplicationController
-  before_action :set_friend_request, except: [:index, :create]
+  before_action :set_friend_request, except: %i[index create]
 
   def create
     friend = User.find(params[:friend_id])
     @friend_request = current_user.friend_requests.new(friend: friend)
 
     if @friend_request.save
-      render :show, status: :1, location: @friend_request
+      render :show, status: :created, location: @friend_request
     else
       # error.add()
     end
@@ -21,11 +23,12 @@ class FriendRequestsController < ApplicationController
     @friend_request.accept
     head :no_content
   end
-  
+
   def destroy
     @friend_request.destroy
     head :no_content
   end
+
   private
 
   def set_friend_request
