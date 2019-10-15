@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'friendships/index'
+  get 'friendships/destroy'
   resources :friend_requests
   # pwa routes
   get '/service-worker.js' => "service_worker#service_worker"

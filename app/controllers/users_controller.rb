@@ -6,4 +6,8 @@ class UsersController < ApplicationController
   def index
     @user = User.all
   end
+
+  def remove_friend(friend)
+    current_user.friends.destroy(friend)
+  end
 end
