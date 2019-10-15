@@ -3,7 +3,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.all
+    @posts = Post.desc
   end
 
   def create
@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     else
       flash['alert'] = 'Error occurred'
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   private

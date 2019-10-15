@@ -2,18 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
-  it 'has a valid factory' do
-    expect(FactoryBot.build(:post)).to be_valid
-  end
-
+RSpec.describe Comment, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:body) }
   end
-
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
-    it { is_expected.to have_many(:likes) }
-    it { is_expected.to have_many(:comments) }
+    it { is_expected.to belong_to(:post) }
   end
 end

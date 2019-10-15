@@ -1,0 +1,19 @@
+<div class="post-max" id="post-<%= post.id %>">
+    <header class="post-header d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+        <div class="profile-img--default"><%= post.user.initial %></div>
+        <span class="user-name text-white m-2"><%= post.user.display_name %></span>
+    </div>
+    <div class="d-flex justify-content-around align-items-center">
+        <div class="time text-white p-2"> <%= time_ago_in_words(post.created_at) %> ago</div>
+        <div class="p-2">
+        <%= link_to show_svg('general_icons/arrow_up.svg'), likes_path(like: {post_id: post.id}), method: 'post', class:'upvote' %>
+        <span class="text-white"><%= post.likes.count %></span>
+       </div>
+    </div>
+       
+    </header>
+
+    <div class="post-body"><%= post.body %></div>
+
+</div>

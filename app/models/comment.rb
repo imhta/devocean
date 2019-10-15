@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-class Post < ApplicationRecord
+class Comment < ApplicationRecord
   belongs_to :user
-  has_many :comments
-  has_many :likes
-  has_rich_text :body
+  belongs_to :post
   validates :body, presence: true
   scope :desc, -> { order('created_at DESC') }
 end
