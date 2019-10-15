@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friend_requests
   # pwa routes
   get '/service-worker.js' => "service_worker#service_worker"
   get '/manifest.json' => "service_worker#manifest"

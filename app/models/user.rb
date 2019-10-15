@@ -3,8 +3,10 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments
-  has_many :friendships
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend"
+  has_many :friend_requests, dependent: :destroy
+  has_many :pending_friends, through: :friend_requests, source: :friend
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -22,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def friends
-    friends_array = friendships.map{|friendship| friendship.friend if friendship.confirmed}
+    friends_array = friendships.map{|friendship| friendship.friend if friendship}
     friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.confirmed}
     friends_array.compact
   end
