@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-class CreateFriendRequests < ActiveRecord::Migration[6.0]
+class CreateFriendships < ActiveRecord::Migration[6.0]
   def change
-    create_table :friend_requests do |t|
+    create_table :friendships do |t|
       t.references :user, null: false, foreign_key: true
       t.references :friend
+      t.integer :status
 
       t.timestamps
     end
