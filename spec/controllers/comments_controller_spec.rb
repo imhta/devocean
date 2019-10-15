@@ -14,22 +14,17 @@ RSpec.describe CommentsController, type: :controller do
       context 'with valid attributes' do
         it 'adds a comment' do
           expect do
-            post :create, params: { comment: { user_id: @comment.user.id,
-                                               post_id: @comment.post.id,
-                                               body: @comment.body } }
+            post :create, params: { comment: { post_id: @comment.post.id, body: @comment.body } }
           end.to change(user.comments, :count).by(1)
         end
       end
 
       context 'with invalid attributes' do
         let(:comment_params) { FactoryBot.attributes_for(:comment, :invalid) }
-        let(:create_comment_with_invalid) do
-          post :create,
-               params: { comment: { user_id: @comment.user.id,
-                                    post_id: @comment.post.id, body: @comment.body } }
-        end
         it 'does not add a project' do
-          expect(create_comment_with_invalid).not_to be_successful
+          expect do
+            post :create, params: { comment: { post_id: @comment.post.id, body: comment_params } }
+          end.not_to change(user.comments, :count)
         end
       end
     end
