@@ -19,7 +19,7 @@
 </section>
 <aside class="col-md-4">
     <h3 class="title text-primary">COMMENTS</h3>
-    <%= render 'comments/comment_form', {post_id: @post.id, user_id: @post.user_id} %>
+    <%= render 'comments/comment_form', {post_id: @post.id} %>
         <% @post.comments.all.each do |c|%>
         <%= render 'comments/comment', {comment: c}%>
     <%end%>
