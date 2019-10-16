@@ -13,24 +13,24 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    return unless current_user.requested_friends.include?(@user)
+    return unless current_user.requested_friends.include?(get_user_from_params)
 
-    current_user.accept(@user)
+    current_user.accept(get_user_from_params)
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    current_user.remove_friend(@friend)
+    current_user.remove_friend(set_friend_from_params)
     head :no_content
   end
 
   private
 
-  def set_friend
-    @friend = current_user.friends.find(params[:id])
+  def set_friend_from_params
+    current_user.friends.find(params[:id])
   end
 
-  def set_user
-    @user = User.find(params[:user_id])
+  def get_user_from_params
+    User.find(params[:id])
   end
 end
