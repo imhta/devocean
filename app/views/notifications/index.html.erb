@@ -20,6 +20,9 @@
         </section>      
         <section class="col-md-8">
         <h3 class="title text-primary">NOTIFICATIONS</h3>
+            <% if @users.empty? %>
+                <%= render 'shared/if_empty_text', {page: 'notifications'}%>
+            <%else%>
             <% @users.each do |user| %>
                 <div class="user-card d-sm-flex align-items-center m-3 justify-content-between">
                     <div class="d-sm-flex align-items-center">
@@ -34,6 +37,7 @@
                         <%= link_to show_svg('general_icons/check.svg'), friendship_path(user.id), method: 'patch', class: 'friend-request-btn p-2'%>
                     </div>
                 </div>
+            <%end%>
             <%end%>
         </section>
     </div>

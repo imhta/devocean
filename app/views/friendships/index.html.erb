@@ -20,6 +20,9 @@
         </section>      
         <section class="col-md-8">
         <h3 class="title text-primary">FRIENDS</h3>
+        <% if @friends.empty? %>
+            <%= render 'shared/if_empty_text', {page: 'friends'}%>
+        <%else%>        
           <% @friends.each do |user| %>
             <div class="user-card d-sm-flex align-items-center m-3 justify-content-between">
                 <div class="d-sm-flex align-items-center">
@@ -31,6 +34,7 @@
                 </div>
             </div>
             <%end%>
+        <%end%>    
         </section>
     </div>
 

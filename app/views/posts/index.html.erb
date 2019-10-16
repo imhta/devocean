@@ -27,8 +27,12 @@
             <%end%>
             <div class="feed">
                 <h3 class="title text-primary">FEED</h3>
-                <% @posts.each do |p|%>
-                    <%= render 'posts/post', {post: p}%>
+                <% if @posts.empty? %>
+                    <%= render 'shared/if_empty_text', {page: 'feed'}%>
+                <%else%>
+                    <% @posts.each do |p|%>
+                        <%= render 'posts/post', {post: p}%>
+                    <%end%>
                 <%end%>
             </div>           
         </section>
