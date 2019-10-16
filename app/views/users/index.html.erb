@@ -22,7 +22,7 @@
         <%= user.email%>
       </div>
     </div>
-    <%= link_to show_svg('general_icons/add_friend.svg'), '#', class: 'friend-request-btn'%>
+    <%= link_to show_svg('general_icons/add_friend.svg'), friendships_path({user_id: user.id}), method: 'post', class: 'friend-request-btn'%>
   </div>
   <%end%>
 </section>

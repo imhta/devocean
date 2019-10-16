@@ -20,6 +20,17 @@
         </section>      
         <section class="col-md-8">
         <h3 class="title text-primary">FRIENDS</h3>
+          <% @friends.each do |user| %>
+            <div class="user-card d-sm-flex align-items-center m-3 justify-content-between">
+                <div class="d-sm-flex align-items-center">
+                <div class="profile-img--default m-3"><%= user.initial %></div>
+                <div>
+                    <%= user.display_name%> <br>
+                    <%= user.email%>
+                </div>
+                </div>
+            </div>
+            <%end%>
         </section>
     </div>
 
