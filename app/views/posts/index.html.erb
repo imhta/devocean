@@ -15,11 +15,7 @@
 
     <div class="row">
         <section class="col-md-4">
-            <div class="do-sidebar d-flex flex-column justify-content-center align-items-center">
-                <div class="profile-img--default m-4"><%= current_user_initial %></div>
-                <p><%= current_user.display_name%></p>
-                <p class="sub-title"><%= current_user.email %></p>
-            </div>
+            <%= render 'users/user_card'%>
         </section>
         <section class="col-md-8">
             <%= form_for(:post, url: posts_path )do |form|  %>
@@ -29,13 +25,14 @@
                 <%= form.submit "Post" %>
             </div>
             <%end%>
+            <div class="feed">
+                <h3 class="title text-primary">FEED</h3>
+                <% @posts.each do |p|%>
+                    <%= render 'posts/post', {post: p}%>
+                <%end%>
+            </div>           
         </section>
     </div>
 
-    <div class="col-md-8 offset-md-4">
-        <h3 class="title text-primary">FEED</h3>
-        <% @posts.each do |p|%>
-            <%= render 'posts/post', {post: p}%>
-        <%end%>
-    </div>
+
 </main>
