@@ -6,6 +6,7 @@
             fill="white" />
     </svg>
     <ul>
+        <%= link_to "Feed", root_path, class: 'do-btn' %>
         <%= link_to "Devs Around you", users_index_path, class: 'do-btn' %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'do-btn' %>
     </ul>
