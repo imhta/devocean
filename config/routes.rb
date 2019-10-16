@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: "registrations"}
 
   get 'users/index'
+  get 'friends', to: 'friendships#index'
   get 'notifications', to: 'notifications#index'
   resources :posts, except: [:new, :edit, :update]
   resources :comments, except: [:new, :edit, :update, :show, :destory]
