@@ -8,15 +8,6 @@ class Friendship < ApplicationRecord
 
   private
 
-  # def create_inverse_relationship
-  #   friend.friendships.create(friend: user)
-  # end
-
-  # def destroy_inverse_relationship
-  #   friendship = friend.friendships.find_by(friend: user)
-  #   friendship&.destroy
-  # end
-
   def not_self
     errors.add(:friend, "can't be equal to user") if user == friend
   end
