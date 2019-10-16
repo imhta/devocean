@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :pending_friends,
            -> { where friendships: { status: 'pending' } }, through: :friendships, source: :friend
   has_many :requested_friends,
-           -> { where friendship: { status: 'requested' } }, through: :friendships, source: :friend
+           -> { where friendships: { status: 'requested' } }, through: :friendships, source: :friend
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
