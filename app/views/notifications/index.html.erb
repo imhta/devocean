@@ -32,10 +32,7 @@
                         <%= user.email%>
                     </div>
                     </div>
-                    <div class="d-sm-flex align-items-center">
-                        <%= link_to show_svg('general_icons/close.svg'), friendship_path(user.id), method: 'delete', class: 'friend-request-btn p-2 '%>
-                        <%= link_to show_svg('general_icons/check.svg'), friendship_path(user.id), method: 'patch', class: 'friend-request-btn p-2'%>
-                    </div>
+                    <%= link_to show_svg('general_icons/check.svg'), friendship_path(user.id), method: 'patch', class: 'friend-request-btn p-2'%>
                 </div>
             <%end%>
             <%end%>

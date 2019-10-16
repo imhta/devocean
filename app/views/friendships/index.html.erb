@@ -26,12 +26,13 @@
           <% @friends.each do |user| %>
             <div class="user-card d-sm-flex align-items-center m-3 justify-content-between">
                 <div class="d-sm-flex align-items-center">
-                <div class="profile-img--default m-3"><%= user.initial %></div>
-                <div>
-                    <%= user.display_name%> <br>
-                    <%= user.email%>
+                    <div class="profile-img--default m-3"><%= user.initial %></div>
+                    <div>
+                        <%= user.display_name%> <br>
+                        <%= user.email%>
+                    </div>
                 </div>
-                </div>
+                <%= link_to show_svg('general_icons/close.svg'), friendship_path(user.id), method: 'delete', class: 'friend-request-btn p-2 '%>
             </div>
             <%end%>
         <%end%>    

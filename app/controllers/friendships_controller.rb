@@ -2,7 +2,7 @@
 
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_friend, only: :destroy
+
   def index
     @friends = current_user.friends
   end
@@ -20,8 +20,8 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    current_user.remove_friend(set_friend_from_params)
-    head :no_content
+    current_user.friends.destroy(set_friend_from_params)
+    redirect_back(fallback_location: root_path)
   end
 
   private
