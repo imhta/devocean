@@ -1,0 +1,10 @@
+<div class="do-sidebar d-flex flex-column justify-content-center align-items-center">
+    <div class="profile-img--default m-4"><%= current_user_initial %></div>
+    <p><%= current_user.display_name%></p>
+    <p class="sub-title"><%= current_user.email %></p>
+
+</div>
+<div class="d-flex justify-content-between m-3">
+    <%= link_to 'Friends', '#', class: 'do-btn'%>
+    <%= link_to 'Notifications', notifications_path, class: 'do-btn'%>
+</div>
