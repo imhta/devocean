@@ -2,7 +2,6 @@
 
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user
   before_action :set_friend, only: :destroy
   def index
     @friends = current_user.friends
