@@ -6,23 +6,27 @@ class Friendship < ApplicationRecord
 
   validate :not_self
 
-  # enum status: [:0, :1, :2]
-
   private
 
-  def create_inverse_relationship
-    friend.friendships.create(friend: user)
-  end
+  # def create_inverse_relationship
+  #   friend.friendships.create(friend: user)
+  # end
 
-  def destroy_inverse_relationship
-    friendship = friend.friendships.find_by(friend: user)
-    friendship&.destroy
-  end
+  # def destroy_inverse_relationship
+  #   friendship = friend.friendships.find_by(friend: user)
+  #   friendship&.destroy
+  # end
 
   def not_self
     errors.add(:friend, "can't be equal to user") if user == friend
   end
-  # def create_request
-  #   friend.friendship.create(friend: user, status: :1) if status.zero?
-  # end
+
+  def not_friends
+    errors.add(:friend, 'is already added') if user.friends.include?(friend)
+  end
+
+  def not_pending
+    errors.add(:friend, 'already requested friendship') if friend.pending_friends.include?(user)
+  end
+  
 end
