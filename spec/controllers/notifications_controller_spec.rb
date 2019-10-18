@@ -2,16 +2,15 @@
 
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
-  describe '#index' do
-    let(:user) { FactoryBot.create(:user) }
+RSpec.describe NotificationsController, type: :controller do
+  let(:user) { FactoryBot.create(:user) }
 
+  describe '#index' do
     context 'as an authenticated user' do
       before { sign_in user }
       it 'responds successfully' do
         get :index
         expect(response).to be_successful
-        expect(assigns(:users)).to eq(User.all - [user] - user.friends)
       end
     end
 

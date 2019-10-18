@@ -6,8 +6,9 @@
             fill="white" />
     </svg>
     <ul>
-      <%= link_to "Devs Around you", users_index_path, class: 'do-btn' %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'do-btn' %>
+        <%= link_to "Feed", root_path, class: 'do-btn' %>
+        <%= link_to "Devs Around you", users_index_path, class: 'do-btn' %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'do-btn' %>
     </ul>
 </nav>
 
@@ -16,25 +17,25 @@
     <div class="row">
         <section class="col-md-4">
             <%= render 'users/user_card'%>
-        </section>
+        </section>      
         <section class="col-md-8">
-            <%= form_for(:post, url: posts_path )do |form|  %>
-
-            <%= form.rich_text_area :body, placeholder: '😃 Share your thoughts.. ' %>
-            <div class="trix-footbar p-3 d-flex justify-content-end">
-                <%= form.submit "Post" %>
+        <h3 class="title text-primary">FRIENDS</h3>
+        <% if @friends.empty? %>
+            <%= render 'shared/if_empty_text', {page: 'friends'}%>
+        <%else%>        
+          <% @friends.each do |user| %>
+            <div class="user-card d-sm-flex align-items-center m-3 justify-content-between">
+                <div class="d-sm-flex align-items-center">
+                    <div class="profile-img--default m-3"><%= user.initial %></div>
+                    <div>
+                        <%= user.display_name%> <br>
+                        <%= user.email%>
+                    </div>
+                </div>
+                <%= link_to show_svg('general_icons/close.svg'), friendship_path(user.id), method: 'delete', class: 'friend-request-btn p-2 '%>
             </div>
             <%end%>
-            <div class="feed">
-                <h3 class="title text-primary">FEED</h3>
-                <% if @posts.empty? %>
-                    <%= render 'shared/if_empty_text', {page: 'feed'}%>
-                <%else%>
-                    <% @posts.each do |p|%>
-                        <%= render 'posts/post', {post: p}%>
-                    <%end%>
-                <%end%>
-            </div>           
+        <%end%>    
         </section>
     </div>
 
