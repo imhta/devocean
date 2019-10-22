@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/service-worker.js' => "service_worker#service_worker"
   get '/manifest.json' => "service_worker#manifest"
   get '/privacy-policy' => 'static_pages#privacy'
-  devise_for :users, :controllers => {registrations: "registrations"}
+  devise_for :users, :controllers => {registrations: "registrations", omniauth_callbacks: 'omni_auth'}
 
   get 'users/index'
   get 'friends', to: 'friendships#index'
