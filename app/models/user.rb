@@ -28,6 +28,10 @@ class User < ApplicationRecord
     first_name[0].upcase
   end
 
+  def my_timeline_posts
+    Post.where(user_id: self).or(Post.where(user_id: friends))
+  end
+
   def friend_request(friend)
     friendships.create(friend: friend, status: 'pending')
     friend.friendships.create(friend: self, status: 'requested')
