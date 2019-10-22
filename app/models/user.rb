@@ -38,7 +38,11 @@ class User < ApplicationRecord
   end
 
   def relations(friend)
-    Friendship.where(user: self, friend: friend) + Friendship.where(user: friend, friend: self)
+    Friendship.where(user: self,
+                     friend: friend,
+                     status: 'accepted') + Friendship.where(user: friend,
+                                                            friend: self,
+                                                            status: 'accepted')
   end
 
   def friend_with?(friend)
