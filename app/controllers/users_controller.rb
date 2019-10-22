@@ -8,13 +8,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user= User.find(params[:id])
+    @user = User.find(params[:id])
     # @friend = Friendships.where(user_id: current_user.friend_id)
-    @count=0
-    @users= current_user.strangers  
-    if @users.friend_id == current_user.friend_id
-      count+=1
-    end
-
+    @count = 0
+    @users = current_user.strangers
+    count += 1 if @users.friend_id == current_user.friend_id
   end
 end
