@@ -48,4 +48,8 @@ class User < ApplicationRecord
   def decline_request(friend)
     relations(friend).each(&:destroy)
   end
+
+  def strangers
+    User.all - [self] - friends - pending_friends - requested_friends
+  end
 end
