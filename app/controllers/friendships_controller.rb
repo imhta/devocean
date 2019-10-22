@@ -24,10 +24,6 @@ class FriendshipsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  # def mutual_friends
-  #   self.class.where({user_id: friend_id, friend_id: user_id})
-  # end
-
   private
 
   def friend_from_params
