@@ -12,9 +12,9 @@ class User < ApplicationRecord
            -> { where friendships: { status: 'pending' } }, through: :friendships, source: :friend
   has_many :requested_friends,
            -> { where friendships: { status: 'requested' } }, through: :friendships, source: :friend
-
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[facebook]
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :dob, presence: true
