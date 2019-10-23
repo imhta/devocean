@@ -1,8 +1,8 @@
 [
     {
-      "origin": ["https://dev-ocean.herokuapp.com", "localhost:3000"],
+      "origin": ["https://dev-ocean.herokuapp.com", "http://localhost:3000"],
       "responseHeader": ["Content-Type", "Content-Md5"],
-      "method": ["POST", "GET", "HEAD", "DELETE", "OPTIONS"],
+      "method": ["POST", "PUT", "GET", "HEAD", "DELETE", "OPTIONS"],
       "maxAgeSeconds": 3600
     }
-  ]
+]
