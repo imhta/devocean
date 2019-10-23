@@ -27,6 +27,10 @@
           <div>
             <%= user.display_name%> <br>
             <%= user.email%>
+            <%if !current_user.relations(user).count.zero? %> 
+            <br>
+            <small><%= current_user.relations(user).count %> mutual friends</small>
+            <%end%>
           </div>
         </div>
         <%if current_user.pending_friends.include?(user)%>

@@ -48,6 +48,10 @@ class User < ApplicationRecord
     first_name[0].upcase
   end
 
+  def my_timeline_posts
+    Post.where(user_id: self).or(Post.where(user_id: friends))
+  end
+
   def friend_request(friend)
     friendships.create(friend: friend, status: 'pending')
     friend.friendships.create(friend: self, status: 'requested')
@@ -58,7 +62,11 @@ class User < ApplicationRecord
   end
 
   def relations(friend)
-    Friendship.where(user: self, friend: friend) + Friendship.where(user: friend, friend: self)
+    Friendship.where(user: self,
+                     friend: friend,
+                     status: 'accepted') + Friendship.where(user: friend,
+                                                            friend: self,
+                                                            status: 'accepted')
   end
 
   def friend_with?(friend)
@@ -67,5 +75,9 @@ class User < ApplicationRecord
 
   def decline_request(friend)
     relations(friend).each(&:destroy)
+  end
+
+  def strangers
+    User.all - [self] - friends - pending_friends - requested_friends
   end
 end
