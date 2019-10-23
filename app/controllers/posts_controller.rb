@@ -3,7 +3,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = current_user.my_timeline_posts
+    @posts = current_user.my_timeline_posts.desc
   end
 
   def create
