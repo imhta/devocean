@@ -2,8 +2,8 @@
 
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_many :friendships, dependent: :destroy
   has_many :friends,
@@ -38,7 +38,11 @@ class User < ApplicationRecord
   end
 
   def accept(friend)
-    relations(friend).each { |friendship| friendship.update(status: 'accepted') }
+    pending_relations(friend).each { |friendship| friendship.update(status: 'accepted') }
+  end
+
+  def pending_relations(friend)
+    Friendship.where(user: self, friend: friend) + Friendship.where(user: friend, friend: self)
   end
 
   def relations(friend)
