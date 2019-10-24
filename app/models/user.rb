@@ -17,18 +17,17 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook]
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :dob, presence: true
-  validates :gender, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      puts "auth #{auth}"
+      puts "user #{user}"
+      puts auth.info
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       user.img_link = auth.info.image
-      user.gender = auth.info.gender
-      user.dob = auth.info.birthday
     end
   end
 
