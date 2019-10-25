@@ -26,11 +26,7 @@
           <% @friends.each do |user| %>
             <div class="user-card d-sm-flex align-items-center m-3 justify-content-between">
                 <div class="d-sm-flex align-items-center">
-                    <% if user.img_link.nil? %>
-                        <div class="profile-img--default m-3"><%= user.initial %></div>
-                    <%else%>
-                        <%= image_tag user.img_link, class:"profile-img m-3"%>  
-                    <%end%>
+                    <div class="profile-img--default m-3"><%= user.initial %></div>
                     <div>
                         <%= user.display_name%> <br>
                         <%= user.email%>

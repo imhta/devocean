@@ -2,6 +2,10 @@ test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
 
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
@@ -11,16 +15,12 @@ test:
 #   bucket: your_own_bucket
 
 # Remember not to checkin your GCS keyfile to a repository
-google:
-  service: GCS
-  project: devocean
-  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
-  bucket: devocean
-google_dev:
-  service: GCS
-  project: devocean
-  credentials: <%= Rails.root.join("config/secrets/devocean.json") %>
-  bucket: devocean
+# google:
+#   service: GCS
+#   project: your_project
+#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
+#   bucket: your_own_bucket
+
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
 #   service: AzureStorage

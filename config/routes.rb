@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   # pwa routes
   get '/service-worker.js' => "service_worker#service_worker"
   get '/manifest.json' => "service_worker#manifest"
-  get '/privacy-policy' => 'static_pages#privacy'
-  devise_for :users, :controllers => {registrations: "registrations", omniauth_callbacks: 'omni_auth'}
+  devise_for :users, :controllers => {registrations: "registrations"}
 
   get 'users/index'
   get 'friends', to: 'friendships#index'
