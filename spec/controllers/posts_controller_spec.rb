@@ -13,7 +13,7 @@ RSpec.describe PostsController, type: :controller do
       it 'responds successfully' do
         get :index
         expect(response).to be_successful
-        expect(assigns(:posts)).to eq(user.my_timeline_posts.desc)
+        expect(assigns(:posts)).to eq(Post.desc)
       end
     end
     context 'as a guest' do
