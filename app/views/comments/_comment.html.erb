@@ -1,7 +1,11 @@
 <div class="comment" id="comment-<%= comment.id %>">
     <header class="comment-header d-flex justify-content-between align-items-center">
     <div class="d-flex align-items-center">
+    <% if comment.user.img_link.nil? %>
         <div class="profile-img--default"><%= comment.user.initial %></div>
+    <%else%>
+        <%= image_tag comment.user.img_link, class:"profile-img"%>  
+    <%end%>    
         <span class="user-name text-white m-2"><%= comment.user.display_name %></span>
     </div>
     <div class="time text-white p-2"> <%= time_ago_in_words(comment.created_at) %> ago</div>       
