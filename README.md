@@ -1,4 +1,5 @@
 # devocean
+> [live preview](https://dev-ocean.herokuapp.com/)
 social network for remote developers and learners
 ## Installation ⚙
 ### Requirements
@@ -36,6 +37,11 @@ bundle exec rspec
 - PWA
 ## ERD
 <img src="docs/_Entity Relationship for DevOcean .png">
+
+## UI Prototype
+- [Desktop version](https://www.figma.com/file/Q38p6nGQa7ILmiYCY7HyXE/Devocean?node-id=2%3A32)
+
+> - Mobile version Coming soon 
 
 ## Screenshots
 > Coming soon
