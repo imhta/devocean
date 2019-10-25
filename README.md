@@ -1,6 +1,7 @@
 # devocean
 > [live preview](https://dev-ocean.herokuapp.com/)
-social network for remote developers and learners
+
+Social network for remote developers and learners
 ## Installation ⚙
 ### Requirements
 - Ruby 2.6
