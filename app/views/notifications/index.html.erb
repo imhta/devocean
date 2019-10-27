@@ -1,0 +1,47 @@
+<nav class="navbar">
+    <svg class="brand-logo" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="35" fill="black" stroke="#00BAF4" stroke-width="10" />
+        <path
+            d="M20.1602 42.3496C20.1602 39.3848 20.8223 37.0234 22.1465 35.2656C23.4824 33.5078 25.3047 32.6289 27.6133 32.6289C29.4648 32.6289 30.9941 33.3203 32.2012 34.7031V25H37.2988V52H32.7109L32.4648 49.9785C31.1992 51.5605 29.5703 52.3516 27.5781 52.3516C25.3398 52.3516 23.541 51.4727 22.1816 49.7148C20.834 47.9453 20.1602 45.4902 20.1602 42.3496ZM25.2402 42.7188C25.2402 44.5 25.5508 45.8652 26.1719 46.8145C26.793 47.7637 27.6953 48.2383 28.8789 48.2383C30.4492 48.2383 31.5566 47.5762 32.2012 46.252V38.7461C31.5684 37.4219 30.4727 36.7598 28.9141 36.7598C26.4648 36.7598 25.2402 38.7461 25.2402 42.7188ZM40.4453 42.3145C40.4453 40.4277 40.8086 38.7461 41.5352 37.2695C42.2617 35.793 43.3047 34.6504 44.6641 33.8418C46.0352 33.0332 47.623 32.6289 49.4277 32.6289C51.9941 32.6289 54.0859 33.4141 55.7031 34.9844C57.332 36.5547 58.2402 38.6875 58.4277 41.3828L58.4629 42.6836C58.4629 45.6016 57.6484 47.9453 56.0195 49.7148C54.3906 51.4727 52.2051 52.3516 49.4629 52.3516C46.7207 52.3516 44.5293 51.4727 42.8887 49.7148C41.2598 47.957 40.4453 45.5664 40.4453 42.543V42.3145ZM45.5254 42.6836C45.5254 44.4883 45.8652 45.8711 46.5449 46.832C47.2246 47.7812 48.1973 48.2559 49.4629 48.2559C50.6934 48.2559 51.6543 47.7871 52.3457 46.8496C53.0371 45.9004 53.3828 44.3887 53.3828 42.3145C53.3828 40.5449 53.0371 39.1738 52.3457 38.2012C51.6543 37.2285 50.6816 36.7422 49.4277 36.7422C48.1855 36.7422 47.2246 37.2285 46.5449 38.2012C45.8652 39.1621 45.5254 40.6562 45.5254 42.6836Z"
+            fill="white" />
+    </svg>
+    <ul>
+        <%= link_to "Feed", root_path, class: 'do-btn' %>
+        <%= link_to "Devs Around you", users_index_path, class: 'do-btn' %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'do-btn' %>
+    </ul>
+</nav>
+
+<main class="container">
+
+    <div class="row">
+        <section class="col-md-4">
+            <%= render 'users/user_card'%>
+        </section>      
+        <section class="col-md-8">
+        <h3 class="title text-primary">NOTIFICATIONS</h3>
+            <% if @users.empty? %>
+                <%= render 'shared/if_empty_text', {page: 'notifications'}%>
+            <%else%>
+            <% @users.each do |user| %>
+                <div class="user-card d-sm-flex align-items-center m-3 justify-content-between">
+                    <div class="d-sm-flex align-items-center">
+                    <% if user.img_link.nil? %>
+                        <div class="profile-img--default m-3"><%= user.initial %></div>
+                    <%else%>
+                        <%= image_tag user.img_link, class:"profile-img m-3"%>  
+                    <%end%>
+                    <div>
+                        <%= user.display_name + ' sent you a requested'%> <br>
+                        <%= user.email%>
+                    </div>
+                    </div>
+                    <%= link_to show_svg('general_icons/check.svg'), friendship_path(user.id), method: 'patch', class: 'friend-request-btn p-2'%>
+                </div>
+            <%end%>
+            <%end%>
+        </section>
+    </div>
+
+
+</main>

@@ -1,0 +1,120 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.do-sidebar {
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  background: #333333;
+  box-shadow: 0px 4px 0px #00baf4;
+  border-radius: 5px;
+
+  user-select: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  min-height: 300px;
+
+  .profile-img--default {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #00baf4;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 30px;
+  }
+}
+
+.feed {
+  margin-top: 20px;
+  .post {
+    position: relative;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    // border: 1px solid #00baf4;
+    box-shadow: 0px 4px 0px #00baf4;
+    border-radius: 5px;
+    margin: 20px;
+    background: #333333;
+    .post-header {
+      margin-bottom: 20px;
+    }
+    .profile-img--default {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #00baf4;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+      padding-top: 6px;
+    }
+    .post-body {
+      overflow: hidden;
+      max-height: 500px;
+      margin-bottom: 40px;
+    }
+    .action-toolbar {
+      position: absolute;
+      background: #111111be;
+      width: 100%;
+      padding: 10px;
+      bottom: 0px;
+      left: 0px;
+      a {
+        margin: 1.5px;
+        padding: 1.5px;
+        color: #ffffff;
+      }
+      svg {
+        fill: white;
+      }
+      .time {
+        text-align: right;
+      }
+    }
+  }
+}
+.post-max {
+  position: relative;
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  // border: 1px solid #00baf4;
+  box-shadow: 0px 4px 0px #00baf4;
+  border-radius: 5px;
+  margin: 20px;
+  background: #333333;
+  .post-header {
+    margin-bottom: 20px;
+    a {
+      margin: 1.5px;
+      padding: 1.5px;
+      color: #ffffff;
+    }
+    svg {
+      fill: white;
+    }
+    .time {
+      text-align: right;
+    }
+  }
+  .profile-img--default {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00baf4;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 6px;
+  }
+}

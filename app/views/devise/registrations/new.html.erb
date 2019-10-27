@@ -1,0 +1,58 @@
+<%= render 'devise/shared/navbar'%>
+<main>
+  <h1 class="title text-center text-white">Get <span class="text-primary">Started</span></h1>
+  <h2 class="title text-center">Community for remote developer</h2>
+  <div class="earth"><%= show_svg 'earth.svg'%></div>
+  <section class="d-flex justify-content-center align-items-center">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="m-4">
+      <%= f.label :email, class:'label' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: 'do-field' %>
+    </div>
+
+    <div class="m-4">
+      <%= f.label :first_name, class:'label' %><br />
+      <%= f.text_field :first_name, placeholder: "First name", class: 'do-field' %>
+    </div>
+
+    <div class="m-4">
+      <%= f.label :last_name, class:'label' %><br />
+      <%= f.text_field :last_name, placeholder: "Last name", class: 'do-field' %>
+    </div>
+    <div class="row">
+      <div class="col m-4">
+        <%= f.label :dob, class:'label'%><br />
+        <%= f.text_field :dob, placeholder: "DOB", class: 'do-field', type: 'date' %>
+      </div>
+
+      <div class="col m-4">
+        <%= f.label :gender, class:'label'%><br />
+        <%= f.select :gender,[ "Men", "Women", "Other"], {prompt: "Gender"}, {class: 'do-drop-field', id: 'gender-select' }%>
+      </div>
+    </div>
+
+    <div class="m-4">
+      <%= f.label :password, class:'label'%>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: 'do-field' %>
+    </div>
+
+    <div class="m-4">
+      <%= f.label :password_confirmation, class:'label' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: 'do-field'%>
+    </div>
+    <div class="actions m-4">
+      <%= link_to show_svg('back_arrow.svg'),root_path,class: 'do-min-btn float-left'%>
+      <%= f.submit "Sign up", class:'sign-up-btn do-btn float-right' %>
+    </div>
+
+    <% end %>
+
+  </section>
+
+</main>
+<br>

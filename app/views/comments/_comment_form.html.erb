@@ -1,0 +1,7 @@
+<div class="comment-form">
+<%= form_for (@comment) do |f|%>
+  <%= f.hidden_field :post_id, value: post_id %>
+  <%= f.text_area :body, placeholder: "Write a comment...", class: "do-field", required: true %>
+  <%= f.submit "Comment", class: "do-btn" %>
+<% end %>
+</div>

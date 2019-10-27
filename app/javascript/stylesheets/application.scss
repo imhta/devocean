@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import "do_utils.scss";
+@import "~bootstrap/scss/functions.scss";
+@import "~bootstrap/scss/variables.scss";
+
+$theme-colors: (
+  primary: #00baf4
+);
+
+@import "~bootstrap/scss/bootstrap.scss";
+
+body {
+  background-color: #000000;
+  font-family: Roboto;
+}
+.navbar{
+  margin-bottom: 20px;
+}
+.profile-img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
