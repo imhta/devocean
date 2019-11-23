@@ -45,7 +45,23 @@ bundle exec rspec
 > - Mobile version Coming soon 
 
 ## Screenshots
-> Coming soon
+
+#### Home page (before sign in)
+<img src="docs/images/homepage.png">
+
+#### Sign in page
+<img src="docs/images/signin.png">
+
+#### Sign up page
+<img src="docs/images/signup.png">
+
+#### feed page
+<img src="docs/images/feed.PNG">
+
+#### showpost page
+<img src="docs/images/showpost.PNG">
+
+
 
 ## Author
 - [@imhta](https://github.com/imhta)
