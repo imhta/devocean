@@ -1,5 +1,5 @@
 # devocean
-> [live preview](https://dev-ocean.herokuapp.com/)
+### :sparkles: [Demo](https://dev-ocean.herokuapp.com/)
 
 Social network for remote developers and learners
 ## Installation ⚙
